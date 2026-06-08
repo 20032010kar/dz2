@@ -59,14 +59,10 @@ function createTask() {
     };
 }
 
-// Створюємо екземпляр
-const myTodo = createTask();
 
-// Тепер викликаємо його:
+const myTodo = createTask();
 myTodo("add", "Купити хліб");
 myTodo("add", "Вивчити JS");
-
-// Перевіряємо список:
 myTodo("show");
 
 
@@ -74,14 +70,14 @@ myTodo("show");
 /*4*/ 
 function createPromoService() {
     let promos = [
-        { code: "SAVE10", limit: 3 },
-        { code: "FREE20", limit: 1 }
+        { code: "SAVE", limit: 3 },
+        { code: "FREE", limit: 1 }
     ];
 
     return {
         addPromo: function(newPromo) {
             promos = [...promos, newPromo];
-            console.log("Промокод додано!");
+            console.log("Промокод додано");
         },
 
         
@@ -89,12 +85,12 @@ function createPromoService() {
             const promo = promos.find(p => p.code === codeName);
 
             if (!promo) {
-                console.log("Промокод не знайдено.");
+                console.log("Промокод не знайдено");
             } else if (promo.limit > 0) {
                 promo.limit--;
-                console.log(`Успішно! Залишилось використань: ${promo.limit}`);
+                console.log(` Залишилось використань: ${promo.limit}`);
             } else {
-                console.log("Промокод недійсний (вичерпано ліміт).");
+                console.log("Промокод недійсни");
             }
         },
 
@@ -107,8 +103,8 @@ function createPromoService() {
 
 const myShop = createPromoService();
 
-myShop.usePromo("FREE20"); 
-myShop.usePromo("FREE20"); 
+myShop.usePromo("FREE"); 
+myShop.usePromo("FREE"); 
 myShop.addPromo({ code: "SALE50", limit: 5 }); 
 myShop.showPromos();
 
